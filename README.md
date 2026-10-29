@@ -53,3 +53,6 @@ v1 (desain baru hijau zamrud + emas) DIGANTI oleh v2 ini atas permintaan kakak.
 
 ## Love Story (SUDAH DIISI KISAH ASLI 29 Okt)
 - Pertemuan Pertama 2024, Menjalin Kasih 2025, Lamaran 2026, Pernikahan 2026 — kisahnya dari pengantin, kata-katanya diromantiskan (atas permintaan kakak 29 Okt), bukan lagi teks template.
+
+## Update: pagar langsung menyatu sejak awal
+- Penyebab keluhan: pagar tadinya fade menuju opacity 1 lalu mendadak kembali ke 0,62 setelah animasi selesai, sehingga sempat terlihat kontras lalu berubah. Perbaikan: pagar kini fade langsung menuju 0,62 dan bertahan di sana (keyframes fadeGeb), jadi sejak pertama muncul sudah menyatu, tidak ada lagi perubahan mendadak.

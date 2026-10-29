@@ -28,6 +28,7 @@ h1,h2,h3,.serif{font-family:'Prata',serif;color:var(--teal);font-weight:400}
 @keyframes fadeUp{0%{transform:translateY(40px);opacity:0}100%{transform:translateY(0);opacity:1}}
 @keyframes zoomOut{0%{transform:scale(1.25);opacity:0}100%{transform:scale(1);opacity:1}}
 @keyframes fadeInOnly{0%{opacity:0}100%{opacity:1}}
+@keyframes fadeGeb{0%{opacity:0}100%{opacity:.62}}
 @keyframes fadeUpSoft{0%{transform:translateY(16px);opacity:0}100%{transform:translateY(0);opacity:1}}
 @keyframes zoomOutSoft{0%{transform:scale(1.08);opacity:0}100%{transform:scale(1);opacity:1}}
 @keyframes fall{0%{transform:translateY(-8vh) rotate(0);opacity:0}8%{opacity:.9}100%{transform:translateY(108vh) rotate(340deg);opacity:0}}
@@ -50,8 +51,8 @@ h1,h2,h3,.serif{font-family:'Prata',serif;color:var(--teal);font-weight:400}
 .pohon.right.lambai{transform-origin:top center;animation-name:lambaiR,fadeInOnly}
 @keyframes lambaiR{0%{transform:scaleX(-1) rotateZ(-5deg)}100%{transform:scaleX(-1) rotateZ(5deg)}}
 .gebyok{position:absolute;left:0;width:100%;height:15%;object-fit:cover;z-index:3;pointer-events:none;opacity:.62}
-.gebyok.top{top:0;animation:fadeInOnly 2.8s ease-out .3s backwards}
-.gebyok.bottom{bottom:0;animation:fadeInOnly 2.8s ease-out .3s backwards}
+.gebyok.top{top:0;animation:fadeGeb 2.8s ease-out .3s both}
+.gebyok.bottom{bottom:0;animation:fadeGeb 2.8s ease-out .3s both}
 .cbunga{position:absolute;width:34%;z-index:4;pointer-events:none}
 .cbunga.tl{top:13%;left:-7%}.cbunga.tr{top:13%;right:-7%;transform:scaleX(-1)}
 .cbunga.bl{bottom:13%;left:-7%}.cbunga.br{bottom:13%;right:-7%}
