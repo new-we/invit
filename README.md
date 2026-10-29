@@ -40,3 +40,8 @@ v1 (desain baru hijau zamrud + emas) DIGANTI oleh v2 ini atas permintaan kakak.
 - Repo: `new-we/invit` (branch `main`, root).
 - Framework preset: None. Build command: (kosong). Build output directory: `/` (root).
 - Statis penuh, tanpa build step dan tanpa backend.
+
+## Update: titik Maps & lagu
+- Tombol "Lihat Peta" (akad & resepsi) memakai titik persis: https://maps.app.goo.gl/dbs9X9HSLiZSb9cn9
+- Lagu: "Lagu Pernikahan Kita" — Tiara Andini & Arsy Widianto, diputar dari video resminya di YouTube (bukan file unduhan, jadi butuh internet). Lagu mulai otomatis saat tamu menekan "Buka Undangan", dari detik ke-60 (menit 1:00) supaya langsung masuk vokal, lalu mengulang dari detik yang sama saat habis. Tombol musik bulat di pojok kanan bawah untuk jeda/lanjut.
+- Menggeser posisi mulai lagu: ubah angka `MUSIC_START_SECONDS` di bagian script `index.html` (saat ini 60).

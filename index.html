@@ -169,6 +169,12 @@ section{position:relative;padding:74px 26px;overflow:hidden}
 #thanks .script{font-size:40px;color:var(--beige);margin-top:14px}
 footer{text-align:center;padding:22px;font-size:11px;letter-spacing:.2em;color:#9a9a96;text-transform:uppercase;background:var(--cream)}
 footer a{color:var(--teal);text-decoration:none}
+.music-note{font-size:12px;color:#7c7c78;font-style:italic;margin-top:14px;letter-spacing:.06em}
+#musicBtn{position:fixed;right:18px;bottom:18px;z-index:80;width:52px;height:52px;border-radius:50%;
+  background:var(--teal);color:#fff;border:2px solid var(--beige);font-size:20px;cursor:pointer;
+  box-shadow:0 10px 24px rgba(54,86,102,.4);display:none;align-items:center;justify-content:center}
+#musicBtn.show{display:flex}
+#musicBtn.paused{opacity:.75}
 footer a:hover{text-decoration:underline}
 
 /* kelopak */
@@ -232,6 +238,7 @@ footer a:hover{text-decoration:underline}
       <div class="box"><div class="num" id="cdM">0</div><div class="lbl">Menit</div></div>
       <div class="box"><div class="num" id="cdS">0</div><div class="lbl">Detik</div></div>
     </div>
+    <div class="music-note rv" data-a="fade-up">&#9834; Lagu Pernikahan Kita &mdash; Tiara Andini &amp; Arsy Widianto</div>
   </div>
 </section>
 
@@ -295,14 +302,14 @@ footer a:hover{text-decoration:underline}
     <div class="tgl">Minggu, 6 Desember 2026</div>
     <div class="jam">09.00 WIB</div>
     <p>Kediaman Mempelai Wanita<br>Ngampelrejo Jombang Jember</p>
-    <a class="btn-map" href="https://maps.google.com/?q=Ngampelrejo+Jombang+Jember" target="_blank" rel="noopener">Lihat Peta</a>
+    <a class="btn-map" href="https://maps.app.goo.gl/dbs9X9HSLiZSb9cn9" target="_blank" rel="noopener">Lihat Peta</a>
   </div>
   <div class="venue-card rv" data-a="zoom-out">
     <h3>Resepsi</h3>
     <div class="tgl">Minggu, 6 Desember 2026</div>
     <div class="jam">Waktu Bebas</div>
     <p>Kediaman Mempelai Wanita<br>Ngampelrejo Jombang Jember</p>
-    <a class="btn-map" href="https://maps.google.com/?q=Ngampelrejo+Jombang+Jember" target="_blank" rel="noopener">Lihat Peta</a>
+    <a class="btn-map" href="https://maps.app.goo.gl/dbs9X9HSLiZSb9cn9" target="_blank" rel="noopener">Lihat Peta</a>
   </div>
 </section>
 
@@ -380,6 +387,8 @@ footer a:hover{text-decoration:underline}
 </section>
 <footer>Undangan Digital by <a href="https://www.instagram.com/aditya_apps/" target="_blank" rel="noopener">Aditya Apps</a></footer>
 
+<button id="musicBtn" title="Putar / jeda lagu" aria-label="Putar atau jeda lagu">&#9834;</button>
+<div id="ytPlayer" style="position:fixed;width:1px;height:1px;left:-10px;bottom:-10px;opacity:0;pointer-events:none" aria-hidden="true"></div>
 </div><!-- /main -->
 </div><!-- /wrap -->
 
@@ -404,9 +413,53 @@ footer a:hover{text-decoration:underline}
     document.body.appendChild(p);
   }
 
+  // ---- MUSIK: video resmi YouTube "Lagu Pernikahan Kita" (Tiara Andini & Arsy Widianto).
+  // MUSIC_START_SECONDS = detik mulai lagu. Ubah angka ini saja kalau mau geser posisinya.
+  var MUSIC_START_SECONDS = 60;
+  var YT_VIDEO_ID = 'ZeFpigRaXbI';
+  var ytPlayer = null, ytReady = false, musicPlaying = false;
+  var musicBtn = document.getElementById('musicBtn');
+  function setMusicIcon(){
+    musicBtn.textContent = musicPlaying ? 'II' : '\u266A';
+    musicBtn.classList.toggle('paused', !musicPlaying);
+  }
+  function playMusic(){
+    if(!ytReady || !ytPlayer) return;
+    ytPlayer.loadVideoById({videoId: YT_VIDEO_ID, startSeconds: MUSIC_START_SECONDS});
+    ytPlayer.setVolume(70);
+    musicPlaying = true; setMusicIcon();
+  }
+  function toggleMusic(){
+    if(!ytReady || !ytPlayer) return;
+    if(musicPlaying){ ytPlayer.pauseVideo(); musicPlaying = false; }
+    else { ytPlayer.playVideo(); musicPlaying = true; }
+    setMusicIcon();
+  }
+  musicBtn.addEventListener('click', toggleMusic);
+  window.onYouTubeIframeAPIReady = function(){
+    ytPlayer = new YT.Player('ytPlayer', {
+      videoId: YT_VIDEO_ID,
+      playerVars: {autoplay: 0, controls: 0, loop: 1, playlist: YT_VIDEO_ID, playsinline: 1, rel: 0},
+      events: {
+        onReady: function(){ ytReady = true; },
+        onStateChange: function(e){
+          // kalau lagu habis, putar lagi dari posisi mulai (bukan dari awal video)
+          if(e.data === YT.PlayerState.ENDED){ ytPlayer.seekTo(MUSIC_START_SECONDS, true); ytPlayer.playVideo(); }
+          if(e.data === YT.PlayerState.PLAYING){ musicPlaying = true; setMusicIcon(); }
+          if(e.data === YT.PlayerState.PAUSED){ musicPlaying = false; setMusicIcon(); }
+        }
+      }
+    });
+  };
+  var ytTag = document.createElement('script');
+  ytTag.src = 'https://www.youtube.com/iframe_api';
+  document.body.appendChild(ytTag);
+
   document.getElementById('openBtn').addEventListener('click', function(){
     cover.classList.add('hide');
     main.classList.add('show');
+    musicBtn.classList.add('show');
+    playMusic();
     document.body.style.overflow = '';
     setTimeout(function(){ observe(); window.scrollTo(0,0); }, 150);
   });
