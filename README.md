@@ -9,7 +9,7 @@ v1 (desain baru hijau zamrud + emas) DIGANTI oleh v2 ini atas permintaan kakak.
 - Mempelai wanita: Istiq Lailatul Mukaromah (Istiq), putri ke-1 Bapak Khasbullah & Ibu Siti Mujayanah, Ngampelrejo Jombang Jember
 - Akad: Minggu, 6 Desember 2026, 09.00 WIB, kediaman mempelai wanita, Ngampelrejo Jombang Jember
 - Resepsi: Minggu, 6 Desember 2026, waktu Bebas, lokasi yang sama
-- RSVP WhatsApp: 082314559412
+- RSVP WhatsApp: 082314549412 (sama dengan nomor DANA, koreksi 29 Okt — nomor lama 082314559412 SALAH)
 - Amplop digital: DANA 082314549412
 - Nama tamu otomatis: tambahkan `?to=NamaTamu` di akhir URL
 
@@ -23,7 +23,7 @@ v1 (desain baru hijau zamrud + emas) DIGANTI oleh v2 ini atas permintaan kakak.
 - Baris footer paling bawah: "Undangan Digital by Aditya Apps" (nama bisnis tertaut ke Instagram @aditya_apps).
 
 ## PERHATIKAN sebelum dibagikan
-1. Nomor RSVP (082314559412) dan nomor DANA (082314549412) BERBEDA satu digit — keduanya dipakai persis seperti di formulir. Cek ulang ke pengantin.
+1. Nomor RSVP dan nomor DANA SAMA (082314549412) — koreksi 29 Okt: nomor WA lama 082314559412 salah dan sudah diperbaiki di kedua tombol RSVP.
 2. Link peta memakai pencarian Google Maps "Ngampelrejo Jombang Jember", bukan pin titik persis (link Maps tidak dilampirkan di formulir).
 3. Kolom ucapan bersifat demo frontend-only (ucapan hilang saat refresh), sama seperti template Melati.
 4. Tidak ada nama pemilik rekening DANA di halaman (tidak ada di formulir).
@@ -52,4 +52,4 @@ v1 (desain baru hijau zamrud + emas) DIGANTI oleh v2 ini atas permintaan kakak.
 - Isi undangan saat di-scroll juga dilembutkan: naiknya hanya 16px (sebelumnya 40px) selama 1,6 detik, dan zoom-nya hanya dari 1,08x (sebelumnya 1,25x) selama 1,8 detik.
 
 ## Love Story (SUDAH DIISI KISAH ASLI 29 Okt)
-- Pertemuan Pertama 2024, Menjalin Kasih 2025, Lamaran 2026, Pernikahan 2026 — teks persis dari pengantin, bukan lagi teks template.
+- Pertemuan Pertama 2024, Menjalin Kasih 2025, Lamaran 2026, Pernikahan 2026 — kisahnya dari pengantin, kata-katanya diromantiskan (atas permintaan kakak 29 Okt), bukan lagi teks template.
