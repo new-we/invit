@@ -19,6 +19,9 @@ v1 (desain baru hijau zamrud + emas) DIGANTI oleh v2 ini atas permintaan kakak.
 - `img/hendi.jpg`, `img/istiq.jpg` — foto mempelai
 - `img/bg-kebun.jpg`, `img/bunga-goyang.jpg`, `img/gebyok.jpg`, `img/pohon.jpg` — aset dekorasi template Melati (wajib ada, dipakai CSS/cover)
 
+## Kredit pembuat
+- Baris footer paling bawah: "Undangan Digital by Aditya Apps" (nama bisnis tertaut ke Instagram @aditya_apps).
+
 ## PERHATIKAN sebelum dibagikan
 1. Bagian "Love Story" masih TEKS TEMPLATE Melati (pertemuan 2019, menjalin kasih 2021, lamaran 2026, menuju pernikahan 2027) karena kisah asli pasangan tidak ada di formulir. Ganti dulu dengan kisah asli mereka, atau hapus bagian itu, sebelum undangan dibagikan — jangan sampai klien mengira itu kisah mereka.
 2. Nomor RSVP (082314559412) dan nomor DANA (082314549412) BERBEDA satu digit — keduanya dipakai persis seperti di formulir. Cek ulang ke pengantin.
