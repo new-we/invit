@@ -51,3 +51,7 @@ v1 (desain baru hijau zamrud + emas) DIGANTI oleh v2 ini atas permintaan kakak.
 - Kartu cover: animasi gesernya menimpa posisi tengah kartu sehingga kartu sempat muncul dari pojok kanan bawah lalu loncat ke tengah. Perbaikan: kartu sekarang langsung di tengah sejak awal dan hanya fade in (opacity saja).
 - Pagar ukir (gebyok): dibuat lebih menyatu dengan latar lewat opacity 0,62, jadi cokelat tuanya tidak terlalu kontras.
 - File JPG dekorasi lama di repo tidak dipakai lagi oleh halaman (halaman memakai WebP), tapi dibiarkan di repo agar tidak merusak apa pun.
+
+## Update: semua fade in kalem
+- Cover: latar, pagar, pohon, dan bunga tidak lagi geser/zoom — semuanya fade in pelan (opacity saja, 2,5–3 detik, bertahap): latar dulu, lalu pagar & bunga, terakhir bingkai tengah (kartu) mulai detik 1,2 selama 2,8 detik. Goyangan bunga tetap ada setelah muncul, tapi tidak lagi kasar di awal.
+- Isi undangan saat di-scroll juga dilembutkan: naiknya hanya 16px (sebelumnya 40px) selama 1,6 detik, dan zoom-nya hanya dari 1,08x (sebelumnya 1,25x) selama 1,8 detik.
