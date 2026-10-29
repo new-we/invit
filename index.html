@@ -415,7 +415,7 @@ footer a:hover{text-decoration:underline}
 
   // ---- MUSIK: video resmi YouTube "Lagu Pernikahan Kita" (Tiara Andini & Arsy Widianto).
   // MUSIC_START_SECONDS = detik mulai lagu. Ubah angka ini saja kalau mau geser posisinya.
-  var MUSIC_START_SECONDS = 60;
+  var MUSIC_START_SECONDS = 102; // 1 menit 42 detik
   var YT_VIDEO_ID = 'ZeFpigRaXbI';
   var ytPlayer = null, ytReady = false, musicPlaying = false;
   var musicBtn = document.getElementById('musicBtn');
@@ -423,10 +423,23 @@ footer a:hover{text-decoration:underline}
     musicBtn.textContent = musicPlaying ? 'II' : '\u266A';
     musicBtn.classList.toggle('paused', !musicPlaying);
   }
+  var fadeTimer = null;
+  // Fade in: volume naik pelan dari 0 ke 70 selama 4 detik, supaya lagu tidak "jedag" saat mulai.
+  function fadeIn(){
+    if(!ytPlayer) return;
+    if(fadeTimer) clearInterval(fadeTimer);
+    var step = 0;
+    ytPlayer.setVolume(0);
+    fadeTimer = setInterval(function(){
+      step++;
+      ytPlayer.setVolume(Math.round(70 * step / 20));
+      if(step >= 20){ clearInterval(fadeTimer); fadeTimer = null; }
+    }, 200);
+  }
   function playMusic(){
     if(!ytReady || !ytPlayer) return;
     ytPlayer.loadVideoById({videoId: YT_VIDEO_ID, startSeconds: MUSIC_START_SECONDS});
-    ytPlayer.setVolume(70);
+    fadeIn();
     musicPlaying = true; setMusicIcon();
   }
   function toggleMusic(){
@@ -444,7 +457,7 @@ footer a:hover{text-decoration:underline}
         onReady: function(){ ytReady = true; },
         onStateChange: function(e){
           // kalau lagu habis, putar lagi dari posisi mulai (bukan dari awal video)
-          if(e.data === YT.PlayerState.ENDED){ ytPlayer.seekTo(MUSIC_START_SECONDS, true); ytPlayer.playVideo(); }
+          if(e.data === YT.PlayerState.ENDED){ ytPlayer.seekTo(MUSIC_START_SECONDS, true); ytPlayer.playVideo(); fadeIn(); }
           if(e.data === YT.PlayerState.PLAYING){ musicPlaying = true; setMusicIcon(); }
           if(e.data === YT.PlayerState.PAUSED){ musicPlaying = false; setMusicIcon(); }
         }
