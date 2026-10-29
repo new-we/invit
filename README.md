@@ -45,3 +45,9 @@ v1 (desain baru hijau zamrud + emas) DIGANTI oleh v2 ini atas permintaan kakak.
 - Tombol "Lihat Peta" (akad & resepsi) memakai titik persis: https://maps.app.goo.gl/dbs9X9HSLiZSb9cn9
 - Lagu: "Lagu Pernikahan Kita" — Tiara Andini & Arsy Widianto, diputar dari video resminya di YouTube (bukan file unduhan, jadi butuh internet). Lagu mulai otomatis saat tamu menekan "Buka Undangan", dari detik ke-102 (menit 1:42) dengan fade in 4 detik (volume naik pelan dari 0), lalu mengulang dari detik yang sama saat habis. Tombol musik bulat di pojok kanan bawah untuk jeda/lanjut.
 - Menggeser posisi mulai lagu: ubah angka `MUSIC_START_SECONDS` di bagian script `index.html` (saat ini 102).
+
+## Update: hilangkan putih & lembutkan pagar
+- Penyebab kotak putih di awal buka: gambar dekorasi template aslinya JPG berlatar putih yang "disamarkan" dengan efek multiply — di HP efek itu sempat tidak jalan di detik awal, sehingga putihnya kelihatan. Perbaikan: latar putih ketiga gambar dekorasi (pohon, gebyok, bunga) benar-benar dihapus menjadi transparan (format WebP: pohon.webp, gebyok.webp, bunga-goyang.webp), dan efek multiply dihapus. Sekarang tidak ada lagi kotak putih, kapan pun gambarnya muncul.
+- Kartu cover: animasi gesernya menimpa posisi tengah kartu sehingga kartu sempat muncul dari pojok kanan bawah lalu loncat ke tengah. Perbaikan: kartu sekarang langsung di tengah sejak awal dan hanya fade in (opacity saja).
+- Pagar ukir (gebyok): dibuat lebih menyatu dengan latar lewat opacity 0,62, jadi cokelat tuanya tidak terlalu kontras.
+- File JPG dekorasi lama di repo tidak dipakai lagi oleh halaman (halaman memakai WebP), tapi dibiarkan di repo agar tidak merusak apa pun.
