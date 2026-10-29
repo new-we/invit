@@ -56,3 +56,7 @@ v1 (desain baru hijau zamrud + emas) DIGANTI oleh v2 ini atas permintaan kakak.
 
 ## Update: pagar langsung menyatu sejak awal
 - Penyebab keluhan: pagar tadinya fade menuju opacity 1 lalu mendadak kembali ke 0,62 setelah animasi selesai, sehingga sempat terlihat kontras lalu berubah. Perbaikan: pagar kini fade langsung menuju 0,62 dan bertahan di sana (keyframes fadeGeb), jadi sejak pertama muncul sudah menyatu, tidak ada lagi perubahan mendadak.
+
+## Update: kartu mempelai sejajar
+- Foto digeser agak ke atas (padding atas kartu dikecilkan) supaya kartu tidak terlalu penuh, dan foto sedikit digeser ke atas di dalam bingkai oval.
+- Nama dibuat sejajar: blok nama diberi tinggi minimum setara 3 baris, sehingga "Putra ke-1 dari" dan "Putri ke-1 dari" selalu mulai di garis yang sama meski jumlah baris nama berbeda. Terverifikasi lewat screenshot lokal: foto sejajar, nama sejajar, keterangan sejajar.
