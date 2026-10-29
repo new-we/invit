@@ -1,6 +1,8 @@
-# Undangan Pernikahan — Hendi & Istiq
+# Undangan Pernikahan — Hendi & Istiq (v2, template Melati asli)
 
-Tema dasar: Melati, dibuat se-premium mungkin (hijau zamrud + emas + ivory, bingkai emas ganda, foto lengkung, kelopak melati jatuh, countdown live).
+v2 ini = file template Melati asli (`undangan-demo/melati/index.html`) dengan HANYA datanya diganti.
+Desain, warna (teal + beige + krem), cover gebyok/pohon/bunga, animasi, dan strukturnya persis Melati.
+v1 (desain baru hijau zamrud + emas) DIGANTI oleh v2 ini atas permintaan kakak.
 
 ## Data yang dipakai (sesuai formulir)
 - Mempelai pria: Hendi Krisdianto (Hendi), putra ke-1 Bapak Ngatolah & Ibu Sulis Indayani, Kraton Yosowilangun Lumajang
@@ -9,27 +11,29 @@ Tema dasar: Melati, dibuat se-premium mungkin (hijau zamrud + emas + ivory, bing
 - Resepsi: Minggu, 6 Desember 2026, waktu Bebas, lokasi yang sama
 - RSVP WhatsApp: 082314559412
 - Amplop digital: DANA 082314549412
-- Nama tamu otomatis: tambahkan `?to=NamaTamu` di akhir URL, mis. `?to=Bapak%20Andi`
+- Nama tamu otomatis: tambahkan `?to=NamaTamu` di akhir URL
 
-## Yang sengaja TIDAK dikarang
-- Tidak ada kisah cinta / timeline pertemuan (tidak ada di formulir) — bagian itu tidak dimasukkan.
-- Tidak ada ucapan contoh atas nama orang lain — kolom ucapan mulai kosong.
-- Tidak ada nama pemilik rekening DANA (tidak ada di formulir) — hanya nomor yang tampil.
-- Link peta memakai pencarian Google Maps "Ngampelrejo Jombang Jember", bukan pin titik persis, karena link Maps tidak dilampirkan di formulir.
+## File di repo `new-we/invit` (branch main)
+- `index.html` (root) — halaman undangan
+- `README.md` (root) — file ini
+- `img/hendi.jpg`, `img/istiq.jpg` — foto mempelai
+- `img/bg-kebun.jpg`, `img/bunga-goyang.jpg`, `img/gebyok.jpg`, `img/pohon.jpg` — aset dekorasi template Melati (wajib ada, dipakai CSS/cover)
 
 ## PERHATIKAN sebelum dibagikan
-- Nomor RSVP (082314559412) dan nomor DANA (082314549412) BERBEDA satu digit — keduanya dipakai persis seperti di formulir. Mohon dicek ulang ke pengantin, jangan sampai salah satu tertukar.
-- Kolom ucapan di halaman ini bersifat demo frontend-only (ucapan hilang saat refresh), sama seperti template demo Melati. Kalau mau ucapan tersimpan permanen, perlu backend — beri tahu MUMU.
+1. Bagian "Love Story" masih TEKS TEMPLATE Melati (pertemuan 2019, menjalin kasih 2021, lamaran 2026, menuju pernikahan 2027) karena kisah asli pasangan tidak ada di formulir. Ganti dulu dengan kisah asli mereka, atau hapus bagian itu, sebelum undangan dibagikan — jangan sampai klien mengira itu kisah mereka.
+2. Nomor RSVP (082314559412) dan nomor DANA (082314549412) BERBEDA satu digit — keduanya dipakai persis seperti di formulir. Cek ulang ke pengantin.
+3. Link peta memakai pencarian Google Maps "Ngampelrejo Jombang Jember", bukan pin titik persis (link Maps tidak dilampirkan di formulir).
+4. Kolom ucapan bersifat demo frontend-only (ucapan hilang saat refresh), sama seperti template Melati.
+5. Tidak ada nama pemilik rekening DANA di halaman (tidak ada di formulir).
 
 ## Menambah foto prewedding nanti
-1. Simpan foto prewedding ke folder `img/` dengan nama `prewed-1.jpg`, `prewed-2.jpg`, dst.
-2. Di `index.html`, cari komentar `<!-- PREWED-1 ... -->` di bagian Galeri.
+1. Simpan foto ke folder `img/` dengan nama `prewed-1.jpg`, `prewed-2.jpg`, dst.
+2. Di `index.html`, cari komentar `<!-- PREWED ... -->` di bagian Galeri.
 3. Ganti kotak "Foto Prewedding Menyusul" dengan baris gambar, contoh:
-   `<img src="./img/prewed-1.jpg" alt="Foto prewedding 1">`
-   (atau tambahkan baris itu di dalam grid galeri bersama foto Hendi & Istiq).
+   `<img class="rv" data-a="zoom-out" src="./img/prewed-1.jpg" alt="Foto prewedding 1">`
 4. Commit & redeploy — tidak perlu mengubah file lain.
 
 ## Deploy ke Cloudflare Pages
 - Repo: `new-we/invit` (branch `main`, root).
 - Framework preset: None. Build command: (kosong). Build output directory: `/` (root).
-- File ini statis penuh (HTML + 2 foto di `img/`), tanpa build step dan tanpa backend.
+- Statis penuh, tanpa build step dan tanpa backend.
