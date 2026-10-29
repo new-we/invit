@@ -325,8 +325,8 @@ footer a:hover{text-decoration:underline}
     <p>Potret kebahagiaan yang ingin kami bagi bersama Anda.</p>
   </div>
   <div class="gal">
-    <img class="rv" data-a="zoom-out" src="./img/hendi.jpg" alt="Hendi Krisdianto">
-    <img class="rv" data-a="zoom-out" src="./img/istiq.jpg" alt="Istiq Lailatul Mukaromah">
+    <img class="rv" data-a="zoom-out" src="./img/hendi.jpg" alt="Hendi Krisdianto" style="object-position:top center">
+    <img class="rv" data-a="zoom-out" src="./img/istiq.jpg" alt="Istiq Lailatul Mukaromah" style="object-position:top center">
     <img class="rv" data-a="zoom-out" src="./img/prewed-1.jpg" alt="Foto prewedding Hendi & Istiq 1">
     <img class="rv" data-a="zoom-out" src="./img/prewed-2.jpg" alt="Foto prewedding Hendi & Istiq 2">
     <img class="rv" data-a="zoom-out" src="./img/prewed-3.jpg" alt="Foto prewedding Hendi & Istiq 3" style="grid-column:1/-1;height:560px;object-position:center 35%">
@@ -510,23 +510,54 @@ footer a:hover{text-decoration:underline}
     });
   });
 
-  // ucapan demo (frontend-only, hilang saat refresh)
-  var demoNames = ['Tamu Undangan'];
-  document.getElementById('wishForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    var n = document.getElementById('wName').value.trim(),
-        t = document.getElementById('wText').value.trim();
-    if(!n || !t) return;
-    var empty = document.querySelector('.wish-empty'); if(empty) empty.remove();
+  // ucapan via Supabase (proyek invit-wishes, tabel wishes).
+  // Kunci anon di bawah ini memang kunci publik (dirancang untuk dipakai di browser),
+  // yang membatasi akses hanyalah RLS: tamu hanya bisa baca & kirim ucapan.
+  var SUPABASE_URL = 'https://siomtmzsxbfzpkcsscwi.supabase.co';
+  var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNpb210bXpzeGJmenBrY3NzY3dpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMyMzU1ODcsImV4cCI6MjEwODgxMTU4N30.1nNM-qkzX0BmQldNArsVFsdt205He90EliUatB5WVkI';
+  var wishList = document.getElementById('wishList');
+  function wishEl(n, t, label){
     var d = document.createElement('div');
     d.className = 'wish';
-    d.innerHTML = '<div class="wn"></div><div class="wt">baru saja</div><p></p>';
+    d.innerHTML = '<div class="wn"></div><div class="wt"></div><p></p>';
     d.querySelector('.wn').textContent = n;
+    d.querySelector('.wt').textContent = label;
     d.querySelector('p').textContent = t;
-    var list = document.getElementById('wishList');
-    list.insertBefore(d, list.firstChild);
-    document.getElementById('wName').value = '';
-    document.getElementById('wText').value = '';
+    return d;
+  }
+  function wishDate(iso){
+    try { return new Date(iso).toLocaleString('id-ID', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'}); }
+    catch(e){ return ''; }
+  }
+  // Muat ucapan tersimpan; kalau gagal (offline/diblokir), biarkan pesan kosong,
+  // formulir tetap bisa mengirim secara lokal di bawah.
+  fetch(SUPABASE_URL + '/rest/v1/wishes?select=name,message,created_at&order=created_at.desc&limit=100', {
+    headers: { 'apikey': SUPABASE_ANON, 'Authorization': 'Bearer ' + SUPABASE_ANON }
+  }).then(function(r){ return r.json(); }).then(function(rows){
+    if(!rows || !rows.length) return;
+    var empty = document.querySelector('.wish-empty'); if(empty) empty.remove();
+    rows.forEach(function(w){ wishList.appendChild(wishEl(w.name, w.message, wishDate(w.created_at))); });
+  }).catch(function(){});
+  document.getElementById('wishForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var n = document.getElementById('wName').value.trim().slice(0, 100),
+        t = document.getElementById('wText').value.trim().slice(0, 500);
+    if(!n || !t) return;
+    var btn = this.querySelector('button[type="submit"]');
+    var oldText = btn.textContent; btn.disabled = true; btn.textContent = 'Mengirim...';
+    var showLocal = function(){
+      var empty = document.querySelector('.wish-empty'); if(empty) empty.remove();
+      wishList.insertBefore(wishEl(n, t, 'baru saja'), wishList.firstChild);
+      document.getElementById('wName').value = '';
+      document.getElementById('wText').value = '';
+      btn.disabled = false; btn.textContent = oldText;
+    };
+    fetch(SUPABASE_URL + '/rest/v1/wishes', {
+      method: 'POST',
+      headers: { 'apikey': SUPABASE_ANON, 'Authorization': 'Bearer ' + SUPABASE_ANON, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+      body: JSON.stringify({ name: n, message: t })
+    }).then(function(r){ if(!r.ok) throw new Error('gagal'); showLocal(); })
+      .catch(function(){ showLocal(); });
   });
 })();
 </script>

@@ -25,7 +25,7 @@ v1 (desain baru hijau zamrud + emas) DIGANTI oleh v2 ini atas permintaan kakak.
 ## PERHATIKAN sebelum dibagikan
 1. Nomor RSVP dan nomor DANA SAMA (082314549412) — koreksi 29 Okt: nomor WA lama 082314559412 salah dan sudah diperbaiki di kedua tombol RSVP.
 2. Link peta memakai pencarian Google Maps "Ngampelrejo Jombang Jember", bukan pin titik persis (link Maps tidak dilampirkan di formulir).
-3. Kolom ucapan bersifat demo frontend-only (ucapan hilang saat refresh), sama seperti template Melati.
+3. Kolom ucapan SUDAH memakai backend Supabase (proyek "invit-wishes", tabel wishes) — ucapan tersimpan permanen dan terlihat semua tamu. SQL-nya di supabase-wishes.sql (lokal, tidak di repo).
 4. Tidak ada nama pemilik rekening DANA di halaman (tidak ada di formulir).
 
 ## Foto prewedding (SUDAH DITAMBAHKAN 29 Okt)
@@ -60,3 +60,8 @@ v1 (desain baru hijau zamrud + emas) DIGANTI oleh v2 ini atas permintaan kakak.
 ## Update: kartu mempelai sejajar
 - Foto digeser agak ke atas (padding atas kartu dikecilkan) supaya kartu tidak terlalu penuh, dan foto sedikit digeser ke atas di dalam bingkai oval.
 - Nama dibuat sejajar: blok nama diberi tinggi minimum setara 3 baris, sehingga "Putra ke-1 dari" dan "Putri ke-1 dari" selalu mulai di garis yang sama meski jumlah baris nama berbeda. Terverifikasi lewat screenshot lokal: foto sejajar, nama sejajar, keterangan sejajar.
+
+## Update: backend ucapan Supabase + galeri kepala utuh
+- Backend: proyek Supabase "invit-wishes" (gratis), tabel `wishes` (id, name, message, created_at), RLS: tamu hanya bisa baca & kirim (tanpa hapus/ubah). Formulir di index.html memuat 100 ucapan terbaru (urutan terbaru dulu) dan mengirim lewat REST Supabase; kalau koneksi gagal, ucapan tetap tampil lokal di layar pengirim saja.
+- Galeri: foto pas Hendi & Istiq di galeri memakai object-position top center, sehingga kepala terlihat penuh dengan ruang biru di atasnya (sebelumnya terpotong karena crop tengah). Terverifikasi lewat screenshot lokal.
+- Catatan: kunci anon Supabase di index.html memang kunci publik (dirancang untuk browser); keamanannya dijaga RLS, bukan kerahasiaan kunci.
