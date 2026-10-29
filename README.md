@@ -23,11 +23,10 @@ v1 (desain baru hijau zamrud + emas) DIGANTI oleh v2 ini atas permintaan kakak.
 - Baris footer paling bawah: "Undangan Digital by Aditya Apps" (nama bisnis tertaut ke Instagram @aditya_apps).
 
 ## PERHATIKAN sebelum dibagikan
-1. Bagian "Love Story" masih TEKS TEMPLATE Melati (pertemuan 2019, menjalin kasih 2021, lamaran 2026, menuju pernikahan 2027) karena kisah asli pasangan tidak ada di formulir. Ganti dulu dengan kisah asli mereka, atau hapus bagian itu, sebelum undangan dibagikan — jangan sampai klien mengira itu kisah mereka.
-2. Nomor RSVP (082314559412) dan nomor DANA (082314549412) BERBEDA satu digit — keduanya dipakai persis seperti di formulir. Cek ulang ke pengantin.
-3. Link peta memakai pencarian Google Maps "Ngampelrejo Jombang Jember", bukan pin titik persis (link Maps tidak dilampirkan di formulir).
-4. Kolom ucapan bersifat demo frontend-only (ucapan hilang saat refresh), sama seperti template Melati.
-5. Tidak ada nama pemilik rekening DANA di halaman (tidak ada di formulir).
+1. Nomor RSVP (082314559412) dan nomor DANA (082314549412) BERBEDA satu digit — keduanya dipakai persis seperti di formulir. Cek ulang ke pengantin.
+2. Link peta memakai pencarian Google Maps "Ngampelrejo Jombang Jember", bukan pin titik persis (link Maps tidak dilampirkan di formulir).
+3. Kolom ucapan bersifat demo frontend-only (ucapan hilang saat refresh), sama seperti template Melati.
+4. Tidak ada nama pemilik rekening DANA di halaman (tidak ada di formulir).
 
 ## Foto prewedding (SUDAH DITAMBAHKAN 29 Okt)
 - Galeri kini berisi 3 foto prewedding: `img/prewed-1.jpg` (senja, gaun putih), `img/prewed-2.jpg` (taman, gaun hijau), `img/prewed-3.jpg` (formal, gaun biru) — ditambah foto Hendi & Istiq. Kotak "Foto Prewedding Menyusul" sudah dihapus.
@@ -51,3 +50,6 @@ v1 (desain baru hijau zamrud + emas) DIGANTI oleh v2 ini atas permintaan kakak.
 ## Update: semua fade in kalem
 - Cover: latar, pagar, pohon, dan bunga tidak lagi geser/zoom — semuanya fade in pelan (opacity saja, 2,5–3 detik, bertahap): latar dulu, lalu pagar & bunga, terakhir bingkai tengah (kartu) mulai detik 1,2 selama 2,8 detik. Goyangan bunga tetap ada setelah muncul, tapi tidak lagi kasar di awal.
 - Isi undangan saat di-scroll juga dilembutkan: naiknya hanya 16px (sebelumnya 40px) selama 1,6 detik, dan zoom-nya hanya dari 1,08x (sebelumnya 1,25x) selama 1,8 detik.
+
+## Love Story (SUDAH DIISI KISAH ASLI 29 Okt)
+- Pertemuan Pertama 2024, Menjalin Kasih 2025, Lamaran 2026, Pernikahan 2026 — teks persis dari pengantin, bukan lagi teks template.
