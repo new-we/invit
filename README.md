@@ -64,4 +64,5 @@ v1 (desain baru hijau zamrud + emas) DIGANTI oleh v2 ini atas permintaan kakak.
 ## Update: backend ucapan Supabase + galeri kepala utuh
 - Backend: proyek Supabase "invit-wishes" (gratis), tabel `wishes` (id, name, message, created_at), RLS: tamu hanya bisa baca & kirim (tanpa hapus/ubah). Formulir di index.html memuat 100 ucapan terbaru (urutan terbaru dulu) dan mengirim lewat REST Supabase; kalau koneksi gagal, ucapan tetap tampil lokal di layar pengirim saja.
 - Galeri: foto pas Hendi & Istiq di galeri memakai object-position top center, sehingga kepala terlihat penuh dengan ruang biru di atasnya (sebelumnya terpotong karena crop tengah). Terverifikasi lewat screenshot lokal.
+- Mempelai: foto oval di kartu Mempelai juga memakai object-position top center (sebelumnya center 30%), sehingga kepala turun sedikit dan ada ruang di atas kepala, tidak mepet bingkai oval.
 - Catatan: kunci anon Supabase di index.html memang kunci publik (dirancang untuk browser); keamanannya dijaga RLS, bukan kerahasiaan kunci.
