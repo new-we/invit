@@ -29,12 +29,8 @@ v1 (desain baru hijau zamrud + emas) DIGANTI oleh v2 ini atas permintaan kakak.
 4. Kolom ucapan bersifat demo frontend-only (ucapan hilang saat refresh), sama seperti template Melati.
 5. Tidak ada nama pemilik rekening DANA di halaman (tidak ada di formulir).
 
-## Menambah foto prewedding nanti
-1. Simpan foto ke folder `img/` dengan nama `prewed-1.jpg`, `prewed-2.jpg`, dst.
-2. Di `index.html`, cari komentar `<!-- PREWED ... -->` di bagian Galeri.
-3. Ganti kotak "Foto Prewedding Menyusul" dengan baris gambar, contoh:
-   `<img class="rv" data-a="zoom-out" src="./img/prewed-1.jpg" alt="Foto prewedding 1">`
-4. Commit & redeploy — tidak perlu mengubah file lain.
+## Foto prewedding (SUDAH DITAMBAHKAN 29 Okt)
+- Galeri kini berisi 3 foto prewedding: `img/prewed-1.jpg` (senja, gaun putih), `img/prewed-2.jpg` (taman, gaun hijau), `img/prewed-3.jpg` (formal, gaun biru) — ditambah foto Hendi & Istiq. Kotak "Foto Prewedding Menyusul" sudah dihapus.
 
 ## Deploy ke Cloudflare Pages
 - Repo: `new-we/invit` (branch `main`, root).
