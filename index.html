@@ -35,6 +35,9 @@ h1,h2,h3,.serif{font-family:'Prata',serif;color:var(--teal);font-weight:400}
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .lambai{animation:lambai 3.2s ease-in-out infinite alternate,fadeInOnly 2.8s ease-out both;transform-origin:top center}
 .lambai.d1{animation-duration:4.5s}.lambai.d2{animation-duration:5.2s}.lambai.d3{animation-duration:3.8s}
+/* bunga kanan di-flip jadi cerminan bunga kiri (animasi lambai menimpa scaleX statis, jadi pakai lambaiR) */
+.cbunga.tr.lambai,.cbunga.br.lambai,.side-fl.r.lambai{animation-name:lambaiR,fadeInOnly}
+.cbunga.br{transform:scaleX(-1)}
 
 /* reveal saat scroll */
 .rv{opacity:0}
